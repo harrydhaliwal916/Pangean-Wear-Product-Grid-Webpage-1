@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Copperplate', 'Copperplate Gothic Light', sans-serif;
+    line-height: 2;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem; /* Reduce padding slightly for better spacing */
+    background-color: #DCEFFF;
+    position: relative;
+}
+
+/* Ensure 'Pangean Wear' doesn't get pushed into the menu */
+h1 {
+    font-size: 1.8rem;
+    flex-grow: 1;
+    padding-left: 30px; /* Increase left padding for better spacing */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Fix menu spacing */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background-color: #DCEFFF;
+    padding: 1.5rem 0;
+    transition: left 0.3s ease-in-out;
+    z-index: 99;
+}
+
+.nav-links.nav-active {
+    left: 0;
+}
+
+.hero {
+    background: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+button {
+    background-color: #273B6D; /* Modern blue shade */
+    color: #DCEFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+      
+}
+
+button:hover {
+    background-color: #273B6D; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:active {
+    background-color: #DCEFFF; /* Even darker blue when clicked */
+    transform: scale(1);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item img:hover {
+    transform: scale(1.05);
+}
+
+
+#contact {
+    text-align: center;
+}
+
+#newsletter {
+    text-align: center;
+}
+
+form {
+    background-color: #FFFFFF; /* Light background for contrast */
+    border: 1px solid #DCEFFF;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto; /* Center the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: black;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #273B6D; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:active {
+    background-color: #DCEFFF; /* Light blue */
+    color: #273B6D; /* Dark text */
+    transform: scale(0.96);
+}
+
+
+form button:hover {
+    background-color: #273B6D; /* Darker green on hover */
+}
+
+
+
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+footer {
+    background-color: #DCEFFF;
+}
+
+.burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #273B6D;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* When active, transform the burger icon into an 'X' */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Ensure nav-links only show when active */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* Keeps it in place */
+    top: 70px; /* Adjust to avoid overlap */
+    left: -100%;
+    width: 100%;
+    background-color: #DCEFFF;
+    padding: 1.5rem 0; /* Adjust spacing */
+    transition: left 0.3s ease-in-out;
+    z-index: 99; /* Ensures menu stays above */
+}
+
+
+
+@media (max-width: 500px) {
+    .features {
+        grid-template-columns: 1fr; /* Stack items for smaller screens */
+        text-align: center;
+    }
+
+    .feature-item img {
+        max-width: 90%; /* Prevent images from getting too small */
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+    }
+
+    #contact, #newsletter {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem; /* Adjust spacing */
+        flex-direction: row;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Reduce size on mobile */
+        padding-left: 10px;
+    }
+
+    .nav-links {
+        top: 80px; /* Moves menu lower */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        top: 70px; /* Moves menu up a bit */
+    }
+
+    h1 {
+        font-size: 1.4rem; /* Slightly smaller on mobile */
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #contact, #newsletter {
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    #contact form,
+    #newsletter form {
+        width: 100%;
+    }
+}
